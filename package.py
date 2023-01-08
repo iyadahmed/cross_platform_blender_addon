@@ -1,6 +1,7 @@
 import subprocess as sp
 from pathlib import Path
 from shutil import copytree, rmtree, make_archive
+from platform import platform, python_version
 
 PARENT_DIR = Path(__file__).parent
 
@@ -21,4 +22,6 @@ sp.run(["pip",
         PARENT_DIR / "out" / "package" / "addon" / "extern"])
 
 # Create addon ZIP
-make_archive((PARENT_DIR / "out" / "addon").as_posix(), "zip", root_dir=PARENT_DIR / "out" / "package")
+zip_filename = f"addon-Python-{python_version()}-{platform()}"
+zip_filepath = (PARENT_DIR / "out" / zip_filename).as_posix()
+make_archive(zip_filepath, "zip", root_dir=PARENT_DIR / "out" / "package")
