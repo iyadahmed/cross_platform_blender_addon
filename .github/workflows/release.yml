@@ -19,8 +19,6 @@ jobs:
           # Matches Blender 3.4.1 Python version
           python-version: '3.10'
       - run: python package.py
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
           files: out/*.zip
