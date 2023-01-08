@@ -1,4 +1,4 @@
-name: Create Add-on ZIP
+name: Release
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - "v*"
 
 jobs:
-  Create Add-on ZIP:
+  release:
     strategy:
       matrix:
         os: [ubuntu-22.04, windows-2022, macos-11]
