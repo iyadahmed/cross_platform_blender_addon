@@ -24,7 +24,7 @@ from scipy.version import version
 
 
 def register():
-    print(version)
+    print("SciPy version:", version)
 
 
 def unregister():
